@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Enrollment Form</title>
+  
+
+    <style>
+   
+
+      
+   form {
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  border: 2px solid #000;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+}
+
+form input[type="text"], form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form input[type="submit"], form input[type="reset"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  text-align: center;
+}
+
+form input[type="submit"]:hover, form input[type="reset"]:hover {
+  background-color: #3e8e41;
+}
+
+
+      </style>
+      
+</head>
+<body>
+	<center><h1>Student Enrollment Form</h1></center>
+	<center><form id="student-form"  action="php.php" method="post">
+		<label for="roll-no">Roll-No:</label>
+		<input type="text" id="roll-no" name="roll-no" required><br><br>
+		<label for="full-name">Full-Name:</label>
+		<input type="text" id="full-name" name="full-name"><br><br>
+		<label for="class">Class:</label>
+		<input type="text" id="class" name="class"><br><br>
+		<label for="birth-date">Birth-Date:</label>
+		<input type="date" id="birth-date" name="birth-date"><br><br>
+		<label for="address">Address:</label>
+		<textarea id="address" name="address" rows="2" cols="95"></textarea><br><br>
+		<label for="enrollment-date">Enrollment-Date:</label>
+		<input type="date" id="enrollment-date" name="enrollment-date"><br><br>
+		<button type="button" id="save-btn">Save</button>
+		<button type="button" id="update-btn">Update</button>
+		<button type="button" id="reset-btn">Reset</button>
+	</form></center>
+	<script>
+		const rollNoInput = document.getElementById("roll-no");
+		const fullNameInput = document.getElementById("full-name");
+		const classInput = document.getElementById("class");
+		const birthDateInput = document.getElementById("birth-date");
+		const addressInput = document.getElementById("address");
+		const enrollmentDateInput = document.getElementById("enrollment-date");
+		const saveBtn = document.getElementById("save-btn");
+		const updateBtn = document.getElementById("update-btn");
+		const resetBtn = document.getElementById("reset-btn");
+
+		rollNoInput.addEventListener("change", () => {
+			const rollNo = rollNoInput.value;
+			if (rollNo) {
+				// Check if Roll No. exists in the database
+				// Replace this code with database check code
+				const exists = false;
+
+				if (exists) {
+					// Roll No. exists in the database, enable Update and Reset buttons and disable other fields
+					fullNameInput.disabled = false;
+					classInput.disabled = false;
+					birthDateInput.disabled = false;
+					addressInput.disabled = false;
+					enrollmentDateInput.disabled = false;
+					saveBtn.disabled = true;
+					updateBtn.disabled = false;
+					resetBtn.disabled = false;
+					fullNameInput.focus();
+				} else {
+					// Roll No. does not exist in the database, enable Save and Reset buttons and enable all fields
+					fullNameInput.disabled = false;
+					classInput.disabled = false;
+					birthDateInput.disabled = false;
+					addressInput.disabled = false;
+					enrollmentDateInput.disabled = false;
+					saveBtn.disabled = false;
+					updateBtn.disabled = true;
+					resetBtn.disabled = false;
+					fullNameInput.focus();
+				}
+			}
+		});
+
+		saveBtn.addEventListener("click", () => {
+			const rollNo = rollNoInput.value;
+			const fullName = fullNameInput.value;
+			const classValue = classInput.value;
+			const birthDate = birthDateInput.value;
+			const address = addressInput.value;
+        }
+
+
+
+       
+
+        </script>
+</body>
+</html>
